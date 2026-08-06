@@ -61,7 +61,7 @@
 ### 部署步骤
 1. **克隆项目**
    ```bash
-   git clone https://github.com/your-repo/mcm-ai-agent.git
+   git clone https://github.com/Neiyako/MCMAgent-demo.git
    cd mcm-ai-agent
    ```
 
@@ -209,7 +209,7 @@ python -m uvicorn main:app --reload --port 8000
 ---
 
 ## 📞 联系
-如有问题，请提交 Issue 或邮件至 `your-email@example.com`。
+如有问题，请提交 Issue 或邮件至 `Neiyako@163.com`。
 
 ---
 
