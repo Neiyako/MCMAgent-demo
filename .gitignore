@@ -1,0 +1,48 @@
+# ==============================
+# 操作系统 / IDE
+# ==============================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.iml
+.env
+.env.local
+.env.*.local
+
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+frontend/*.log
+frontend/package-lock.json   # 可选，建议保留但这里忽略（或视情况）
+
+backend/__pycache__/
+backend/*.pyc
+backend/.venv/
+backend/venv/
+backend/env/
+backend/*.egg-info/
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+
+docker-compose.override.yml
+
+uploads/
+figures/
+logs/
+public/reports/
+public/docs/models/*.pdf   # 忽略 PDF 文件，但保留目录（可添加 .gitkeep）
+*.cjs
+*.mjs
+*.out
+*.tmp
+*.log
+*.pid
+*.seed
+*.sqlite3

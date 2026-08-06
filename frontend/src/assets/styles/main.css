@@ -1,0 +1,18 @@
+@import url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css");
+@import url("https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css");
+* { box-sizing:border-box; }
+html, body, #app { height:100%; width:100%;overflow:hidden }
+body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-font-smoothing: antialiased; color: #0b2b44; background: #eef3f8; font-size:14px; line-height:1.5; }
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:#94a3b8; }
+::-webkit-scrollbar-track { background:transparent; }
+* {
+  box-sizing: border-box;
+}
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;   /* 禁止页面滚动，所有滚动交给内部容器 */
+}

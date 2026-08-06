@@ -1,0 +1,59 @@
+services:
+  redis:
+    image: redis:7.2-alpine
+    container_name: mcm-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    networks:
+      - mcm-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: mcm-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./skills:/app/skills
+      - ./uploads:/app/uploads
+      - ./figures:/app/figures
+      - ./public/docs:/app/public/docs
+      - ./public/reports:/app/public/reports   # 新增挂载报告目录
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_BASE=${OPENAI_API_BASE}
+      - OPENAI_MODEL=${OPENAI_MODEL}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - MAX_MESSAGE_LENGTH=${MAX_MESSAGE_LENGTH:-50000}
+      - MAX_PDF_EXTRACT_CHARS=${MAX_PDF_EXTRACT_CHARS:-8000}
+    depends_on:
+      - redis
+    networks:
+      - mcm-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: mcm-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - mcm-network
+
+networks:
+  mcm-network:
+    driver: bridge
+
+volumes:
+  redis_data:   # 命名卷，仅用于 redis 数据持久化
