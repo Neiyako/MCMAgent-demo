@@ -62,7 +62,7 @@
 1. **克隆项目**
    ```bash
    git clone https://github.com/Neiyako/MCMAgent-demo.git
-   cd mcm-ai-agent
+   cd MCMAgent-demo
    ```
 
 2. **执行一键部署脚本**
