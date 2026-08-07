@@ -214,4 +214,3 @@ python -m uvicorn main:app --reload --port 8000
 ---
 
 **祝您比赛顺利！🏆**
-```
